@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?><unload unload_date="2023-02-13 17:36:52">
+<sys_remote_update_set action="INSERT_OR_UPDATE">
+<application display_value="Global">global</application>
+<application_name>Global</application_name>
+<application_scope>global</application_scope>
+<application_version/>
+<collisions/>
+<commit_date/>
+<deleted/>
+<description>*** Created by Muhammad Sharjeel [https://www.linkedin.com/in/devsharjeel/] ***
+
+Utility that helps developers and Admins quickly and better leverage the Syntax Editor Macros when and where they need them without remembering the macros key. 
+It gives a UI action "Show Syntax Macros" on all the required scripting forms so that keys are one click away. </description>
+<inserted/>
+<name>Utility - Show syntax macros shortcuts - MS</name>
+<origin_sys_id/>
+<parent display_value=""/>
+<release_date/>
+<remote_base_update_set display_value=""/>
+<remote_parent_id/>
+<remote_sys_id>a062f2c897c121105ec4b4b3f153af4f</remote_sys_id>
+<state>loaded</state>
+<summary/>
+<sys_class_name>sys_remote_update_set</sys_class_name>
+<sys_created_by>muhammad.sharjeel</sys_created_by>
+<sys_created_on>2023-02-13 17:36:51</sys_created_on>
+<sys_id>668e743c9749a1105ec4b4b3f153afc3</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_updated_by>muhammad.sharjeel</sys_updated_by>
+<sys_updated_on>2023-02-13 17:36:51</sys_updated_on>
+<update_set display_value=""/>
+<update_source display_value=""/>
+<updated/>
+</sys_remote_update_set>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_script_include_f51da2ac97c1a1105ec4b4b3f153af70</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_script_include"&gt;&lt;sys_script_include action="INSERT_OR_UPDATE"&gt;&lt;access&gt;package_private&lt;/access&gt;&lt;active&gt;true&lt;/active&gt;&lt;api_name&gt;global.syntaxEditorMacroUtility&lt;/api_name&gt;&lt;caller_access/&gt;&lt;client_callable&gt;true&lt;/client_callable&gt;&lt;description/&gt;&lt;name&gt;syntaxEditorMacroUtility&lt;/name&gt;&lt;script&gt;&lt;![CDATA[var syntaxEditorMacroUtility = Class.create();
+syntaxEditorMacroUtility.prototype = Object.extendsObject(AbstractAjaxProcessor, {
+
+    /** Return list of Syntax Editor macros [syntax_editor_macro] **/
+    getSyntaxEditorMacroList: function() {
+        var arrayOfMacros = [];
+
+        var macroGR = new GlideRecord('syntax_editor_macro');
+        macroGR.query();
+
+        while (macroGR.next()) {
+            var obj = {};
+            obj.name = macroGR.getValue("name");
+            obj.comments = macroGR.getValue("comments") ? macroGR.getValue("comments") : 'N/A';
+
+            arrayOfMacros.push(obj);
+        }
+
+        return JSON.stringify(arrayOfMacros);
+    },
+
+    type: 'syntaxEditorMacroUtility'
+});]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_include&lt;/sys_class_name&gt;&lt;sys_created_by&gt;muhammad.sharjeel&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2023-02-13 07:01:22&lt;/sys_created_on&gt;&lt;sys_id&gt;f51da2ac97c1a1105ec4b4b3f153af70&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_name&gt;syntaxEditorMacroUtility&lt;/sys_name&gt;&lt;sys_package display_value="Global" source="global"&gt;global&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Global"&gt;global&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_include_f51da2ac97c1a1105ec4b4b3f153af70&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;muhammad.sharjeel&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2023-02-13 07:01:22&lt;/sys_updated_on&gt;&lt;/sys_script_include&gt;&lt;/record_update&gt;</payload>
+<payload_hash>155243570</payload_hash>
+<remote_update_set display_value="Utility - Show syntax macros shortcuts - MS">668e743c9749a1105ec4b4b3f153afc3</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>muhammad.sharjeel</sys_created_by>
+<sys_created_on>2023-02-13 17:36:51</sys_created_on>
+<sys_id>228e743c9749a1105ec4b4b3f153afc4</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>186499403200000001</sys_recorded_at>
+<sys_updated_by>muhammad.sharjeel</sys_updated_by>
+<sys_updated_on>2023-02-13 17:36:51</sys_updated_on>
+<table/>
+<target_name>syntaxEditorMacroUtility</target_name>
+<type>Script Include</type>
+<update_domain>global</update_domain>
+<update_guid>351da2ac31c1a110f56d7e3fca2efb73</update_guid>
+<update_guid_history>351da2ac31c1a110f56d7e3fca2efb73:155243570</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_properties_f395b2289705a1105ec4b4b3f153afeb</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_properties"><sys_properties action="INSERT_OR_UPDATE"><choices/><description>Comma-separated list of tables allowed for the UI action "Show Syntax Macro" to appear.</description><ignore_cache>true</ignore_cache><is_private>false</is_private><name>syntax.macro.allowed.table</name><read_roles/><suffix/><sys_class_name>sys_properties</sys_class_name><sys_created_by>muhammad.sharjeel</sys_created_by><sys_created_on>2023-02-13 07:48:27</sys_created_on><sys_id>f395b2289705a1105ec4b4b3f153afeb</sys_id><sys_mod_count>1</sys_mod_count><sys_name>syntax.macro.allowed.table</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_properties_f395b2289705a1105ec4b4b3f153afeb</sys_update_name><sys_updated_by>muhammad.sharjeel</sys_updated_by><sys_updated_on>2023-02-13 07:54:29</sys_updated_on><type>string</type><value>sys_script_client,sys_script,sys_script_fix,sys_script_include,sysauto,sysauto_script</value><write_roles/></sys_properties><sys_translated_text action="delete_multiple" query="documentkey=f395b2289705a1105ec4b4b3f153afeb"/></record_update>]]></payload>
+<payload_hash>495657335</payload_hash>
+<remote_update_set display_value="Utility - Show syntax macros shortcuts - MS">668e743c9749a1105ec4b4b3f153afc3</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>muhammad.sharjeel</sys_created_by>
+<sys_created_on>2023-02-13 17:36:51</sys_created_on>
+<sys_id>2a8e743c9749a1105ec4b4b3f153afc3</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>18649c4a8280000001</sys_recorded_at>
+<sys_updated_by>muhammad.sharjeel</sys_updated_by>
+<sys_updated_on>2023-02-13 17:36:51</sys_updated_on>
+<table/>
+<target_name>syntax.macro.allowed.table</target_name>
+<type>System Property</type>
+<update_domain>global</update_domain>
+<update_guid>c849fae8b205a110bf45327498f1ca20</update_guid>
+<update_guid_history>c849fae8b205a110bf45327498f1ca20:495657335,bbd7fa643b05a1109ccbd48a4ed05575:-1659472027</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_ui_action_a07ee6ac97c1a1105ec4b4b3f153afca</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_ui_action"&gt;&lt;sys_ui_action action="INSERT_OR_UPDATE"&gt;&lt;action_name&gt;sysverb_syntax_macros&lt;/action_name&gt;&lt;active&gt;true&lt;/active&gt;&lt;client&gt;true&lt;/client&gt;&lt;client_script_v2&gt;&lt;![CDATA[function onClick(g_form) {
+
+}]]&gt;&lt;/client_script_v2&gt;&lt;comments/&gt;&lt;condition&gt;current.canWrite() &amp;amp;&amp;amp; gs.getProperty('syntax.macro.allowed.table').indexOf(current.getTableName().toString() ) &amp;gt; -1;  &lt;/condition&gt;&lt;form_action&gt;true&lt;/form_action&gt;&lt;form_button&gt;true&lt;/form_button&gt;&lt;form_button_v2&gt;false&lt;/form_button_v2&gt;&lt;form_context_menu&gt;false&lt;/form_context_menu&gt;&lt;form_link&gt;false&lt;/form_link&gt;&lt;form_menu_button_v2&gt;false&lt;/form_menu_button_v2&gt;&lt;form_style&gt;primary&lt;/form_style&gt;&lt;format_for_configurable_workspace&gt;false&lt;/format_for_configurable_workspace&gt;&lt;hint/&gt;&lt;isolate_script&gt;true&lt;/isolate_script&gt;&lt;list_action&gt;false&lt;/list_action&gt;&lt;list_banner_button&gt;false&lt;/list_banner_button&gt;&lt;list_button&gt;false&lt;/list_button&gt;&lt;list_choice&gt;false&lt;/list_choice&gt;&lt;list_context_menu&gt;false&lt;/list_context_menu&gt;&lt;list_link&gt;false&lt;/list_link&gt;&lt;list_save_with_form_button&gt;false&lt;/list_save_with_form_button&gt;&lt;list_style/&gt;&lt;messages/&gt;&lt;name&gt;Show syntax macros&lt;/name&gt;&lt;onclick&gt;showSyntaxMacroBanner();&lt;/onclick&gt;&lt;order&gt;100&lt;/order&gt;&lt;script&gt;&lt;![CDATA[/** Call server to get the list of macros and build a UI to display on the top of the page **/
+
+function showSyntaxMacroBanner() {
+    var result = '&lt;b&gt;Syntax Editor Macros List&lt;br&gt;&lt;br&gt;&lt;/b&gt;';
+    var style = 'style="background-color:#dddddd;color:black; padding-left: 5px; padding-right: 5px;"';
+    result += '&lt;table&gt; &lt;tr ' + style + '&gt;&lt;th style="padding-left: 5px; padding-right: 5px"&gt; Name &lt;/th&gt; &lt;th&gt; Comments &lt;/th&gt; &lt;/tr&gt;';
+
+    var syntaxMacrosGA = new GlideAjax("syntaxEditorMacroUtility");
+    syntaxMacrosGA.addParam('sysparm_name', 'getSyntaxEditorMacroList');
+    syntaxMacrosGA.getXML(callBack);
+
+    function callBack(response) {
+        var answer = response.responseXML.documentElement.getAttribute("answer"); //JSON array of syntax macros
+        var jsonParsed = JSON.parse(answer);
+        for (var i = 0; i &lt; jsonParsed.length; i++) {
+            var name = jsonParsed[i]['name'];
+            var comments = jsonParsed[i]['comments'];
+
+            result += '&lt;tr&gt;&lt;td style="padding-left: 5px; padding-right: 5px"&gt;&lt;b&gt;' + name + '&lt;/b&gt;&lt;/td&gt;&lt;td&gt;' + '  ' + comments + '&lt;/td&gt;&lt;/tr&gt;';
+        }
+        g_form.addInfoMessage(result + "&lt;/table&gt;");
+
+    }
+
+
+
+}]]&gt;&lt;/script&gt;&lt;show_insert&gt;true&lt;/show_insert&gt;&lt;show_multiple_update&gt;false&lt;/show_multiple_update&gt;&lt;show_query&gt;false&lt;/show_query&gt;&lt;show_update&gt;true&lt;/show_update&gt;&lt;sys_class_name&gt;sys_ui_action&lt;/sys_class_name&gt;&lt;sys_created_by&gt;muhammad.sharjeel&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2023-02-13 07:07:18&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;a07ee6ac97c1a1105ec4b4b3f153afca&lt;/sys_id&gt;&lt;sys_mod_count&gt;1&lt;/sys_mod_count&gt;&lt;sys_name&gt;Show syntax macros&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="Global" source="global"&gt;global&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Global"&gt;global&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_ui_action_a07ee6ac97c1a1105ec4b4b3f153afca&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;muhammad.sharjeel&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2023-02-13 07:48:45&lt;/sys_updated_on&gt;&lt;table&gt;sys_metadata&lt;/table&gt;&lt;ui11_compatible&gt;true&lt;/ui11_compatible&gt;&lt;ui16_compatible&gt;false&lt;/ui16_compatible&gt;&lt;/sys_ui_action&gt;&lt;/record_update&gt;</payload>
+<payload_hash>283599458</payload_hash>
+<remote_update_set display_value="Utility - Show syntax macros shortcuts - MS">668e743c9749a1105ec4b4b3f153afc3</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>muhammad.sharjeel</sys_created_by>
+<sys_created_on>2023-02-13 17:36:51</sys_created_on>
+<sys_id>6a8e743c9749a1105ec4b4b3f153afc4</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>18649bf67280000001</sys_recorded_at>
+<sys_updated_by>muhammad.sharjeel</sys_updated_by>
+<sys_updated_on>2023-02-13 17:36:51</sys_updated_on>
+<table>sys_metadata</table>
+<target_name>Show syntax macros</target_name>
+<type>UI Action</type>
+<update_domain>global</update_domain>
+<update_guid>c8f7baa85b05a1108593c29d2e7e15ac</update_guid>
+<update_guid_history>c8f7baa85b05a1108593c29d2e7e15ac:283599458,607e2a203305a1105e6a7947bae2b780:1649210916</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_security_acl_role_8113cb0c970521105ec4b4b3f153aff6</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl_role"><sys_security_acl_role action="INSERT_OR_UPDATE"><sys_class_name>sys_security_acl_role</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2023-02-11 19:20:28</sys_created_on><sys_id>8113cb0c970521105ec4b4b3f153aff6</sys_id><sys_mod_count>0</sys_mod_count><sys_name>syntaxEditorMacroUtility.snc_internal</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_scope display_value="Global">global</sys_scope><sys_security_acl display_value="syntaxEditorMacroUtility">f813c704970521105ec4b4b3f153af73</sys_security_acl><sys_update_name>sys_security_acl_role_8113cb0c970521105ec4b4b3f153aff6</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2023-02-11 19:20:28</sys_updated_on><sys_user_role display_value="snc_internal" name="snc_internal">7fcaa702933002009c8579b4f47ffbde</sys_user_role><transaction_id/></sys_security_acl_role></record_update>]]></payload>
+<payload_hash>1048536092</payload_hash>
+<remote_update_set display_value="Utility - Show syntax macros shortcuts - MS">668e743c9749a1105ec4b4b3f153afc3</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>muhammad.sharjeel</sys_created_by>
+<sys_created_on>2023-02-13 17:36:51</sys_created_on>
+<sys_id>a68e743c9749a1105ec4b4b3f153afc4</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>18641ebf60f0000001</sys_recorded_at>
+<sys_updated_by>muhammad.sharjeel</sys_updated_by>
+<sys_updated_on>2023-02-13 17:36:51</sys_updated_on>
+<table>syntaxEditorMacroUtility</table>
+<target_name>syntaxEditorMacroUtility.snc_internal</target_name>
+<type>Access Roles</type>
+<update_domain>global</update_domain>
+<update_guid>4913cb0c3e05211099b274531977f8f9</update_guid>
+<update_guid_history>4913cb0c3e05211099b274531977f8f9:1048536092</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_security_acl_f813c704970521105ec4b4b3f153af73</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl"><sys_security_acl action="INSERT_OR_UPDATE"><active>true</active><admin_overrides>true</admin_overrides><advanced>false</advanced><condition/><description/><name>syntaxEditorMacroUtility</name><operation display_value="execute">execute</operation><script/><sys_class_name>sys_security_acl</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2023-02-11 19:20:28</sys_created_on><sys_id>f813c704970521105ec4b4b3f153af73</sys_id><sys_mod_count>0</sys_mod_count><sys_name>syntaxEditorMacroUtility</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_security_acl_f813c704970521105ec4b4b3f153af73</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2023-02-11 19:20:28</sys_updated_on><type display_value="client_callable_script_include">client_callable_script_include</type></sys_security_acl></record_update>]]></payload>
+<payload_hash>716154535</payload_hash>
+<remote_update_set display_value="Utility - Show syntax macros shortcuts - MS">668e743c9749a1105ec4b4b3f153afc3</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>muhammad.sharjeel</sys_created_by>
+<sys_created_on>2023-02-13 17:36:51</sys_created_on>
+<sys_id>e28e743c9749a1105ec4b4b3f153afc4</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>18641ebf5900000001</sys_recorded_at>
+<sys_updated_by>muhammad.sharjeel</sys_updated_by>
+<sys_updated_on>2023-02-13 17:36:51</sys_updated_on>
+<table>syntaxEditorMacroUtility</table>
+<target_name>syntaxEditorMacroUtility</target_name>
+<type>Access Control</type>
+<update_domain>global</update_domain>
+<update_guid>f813c7045a05211089d9d9c959d72677</update_guid>
+<update_guid_history>f813c7045a05211089d9d9c959d72677:716154535</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+</unload>
