@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<unload unload_date="2023-02-18 06:44:50">
+<sys_ui_action action="INSERT_OR_UPDATE">
+<action_name>sysverb_openinbg</action_name>
+<active>true</active>
+<client>true</client>
+<client_script_v2><![CDATA[function onClick(g_form) {
+
+}]]></client_script_v2>
+<comments/>
+<condition>current.canWrite() &amp;&amp; gs.getProperty('syntax.macro.allowed.table').indexOf(current.getTableName().toString() ) &gt; -1; </condition>
+<form_action>false</form_action>
+<form_button>false</form_button>
+<form_button_v2>false</form_button_v2>
+<form_context_menu>false</form_context_menu>
+<form_link>false</form_link>
+<form_menu_button_v2>false</form_menu_button_v2>
+<form_style/>
+<format_for_configurable_workspace>false</format_for_configurable_workspace>
+<hint/>
+<isolate_script>true</isolate_script>
+<list_action>false</list_action>
+<list_banner_button>false</list_banner_button>
+<list_button>false</list_button>
+<list_choice>false</list_choice>
+<list_context_menu>false</list_context_menu>
+<list_link>false</list_link>
+<list_save_with_form_button>false</list_save_with_form_button>
+<list_style/>
+<messages/>
+<name>Open in Background script</name>
+<onclick>openInBackgroundScript()</onclick>
+<order>100</order>
+<script><![CDATA[function openInBackgroundScript(){
+	var script = g_form.getValue('script');
+	var content = encodeURIComponent(script);
+	var url = "/sys.scripts.do?content=" + content;
+	
+	//window.location();
+	g_navigation.openPopup(url);
+}]]></script>
+<show_insert>true</show_insert>
+<show_multiple_update>false</show_multiple_update>
+<show_query>false</show_query>
+<show_update>true</show_update>
+<sys_class_name>sys_ui_action</sys_class_name>
+<sys_created_by>muhammad.sharjeel</sys_created_by>
+<sys_created_on>2023-02-18 06:07:31</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_domain_path>/</sys_domain_path>
+<sys_id>78ebc81a970d21105ec4b4b3f153afdd</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_name>Open in Background script</sys_name>
+<sys_overrides display_value=""/>
+<sys_package display_value="Global" source="global">global</sys_package>
+<sys_policy/>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>sys_ui_action_78ebc81a970d21105ec4b4b3f153afdd</sys_update_name>
+<sys_updated_by>muhammad.sharjeel</sys_updated_by>
+<sys_updated_on>2023-02-18 06:07:31</sys_updated_on>
+<table>sys_metadata</table>
+<ui11_compatible>true</ui11_compatible>
+<ui16_compatible>false</ui16_compatible>
+</sys_ui_action>
+</unload>
