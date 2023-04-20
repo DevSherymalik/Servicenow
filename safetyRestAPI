@@ -1,0 +1,58 @@
+(function process(/*RESTAPIRequest*/ request, /*RESTAPIResponse*/ response) {
+
+ // implement resource here 
+
+// Get value from the user_name path parameter passed in the URL 
+var requestUser = request.pathParams.user_name; 
+// Get value of the sa_query query parameter passed in the URL
+var requestSAQuery = request.queryParams.sa_query; 
+
+// Query the sys_user table to get the user record for the user passed in 
+// the user_id path parameter.  
+var requestUserName = new GlideRecord('sys_user'); requestUserName.get('user_name',requestUser); 
+
+// If there is no user record for the user_name passed in the user_name path parameter,
+// return a custom error. Notice the error object is created from
+// sn_ws_err.ServiceError(); If no status value is set, the HTTP Status will
+// be 500.
+if(!requestUserName.user_name){   
+    var apiError = new sn_ws_err.ServiceError();   
+    apiError.setStatus(542);   
+    apiError.setMessage("User not found");   
+    apiError.setDetail("No user record found for the user_name passed into the sa_info web service resource using the user_name path parameter.");   
+    response.setError(apiError);   
+    return; 
+} 
+	
+// Get the count of active Safety table records where the user from the
+// user_name path parameter is the Requested for. The encoded query is from the
+// Query Parameter Associations. Group by category.
+var userSACount = new GlideAggregate('x_snc_safety_issues'); 
+userSACount.addAggregate('COUNT'); 
+userSACount.addQuery('assigned_to',requestUserName.sys_id);
+userSACount.addEncodedQuery(requestSAQuery);
+userSACount.groupBy('category'); 
+userSACount.query();
+
+var safetyRecs = 0; 
+var saUserRecs = []; 
+var safetyRecsCount = 0; 
+
+while (userSACount.next()) {   
+    safetyRecs = userSACount.getAggregate('COUNT'); 
+    var reqType = userSACount.category.getDisplayValue();   
+    saUserRecs.push({"requestType": reqType, "count": safetyRecs});  
+    safetyRecsCount = parseInt(safetyRecsCount) + parseInt(safetyRecs); 
+} 
+
+ //Create a body object.  Add property value pairs to the body. 
+var body = {}; 
+body.totalUserSARecs = safetyRecsCount; 
+body.catCounts = saUserRecs; 
+body.user = {"User name": requestUserName.user_name, 
+"User ID": requestUserName.sys_id};       
+
+// Send the response object, which is returned to the requestor, to the body object. 
+response.setBody(body); 
+
+})(request, response); 
